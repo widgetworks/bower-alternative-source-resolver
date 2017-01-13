@@ -1,0 +1,22 @@
+{
+  "name": "bower-alternative-source-resolver",
+  "version": "0.1.0",
+  "description": "An extension to bower allowing alternative component repositories",
+  "main": "./lib/index.js",
+  "keywords": [
+    "bower-resolver"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mwjaworski/bower-alternative-source-resolver.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "lodash": "^4.0.0"
+  }
+}
