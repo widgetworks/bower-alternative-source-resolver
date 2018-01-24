@@ -4,7 +4,7 @@ An extension to bower allowing alternative component repositories. This componen
 
 ## Preparation
 
-This repository augments [bower](https://www.npmjs.com/package/bower). 
+This repository augments [bower](https://www.npmjs.com/package/bower).
 
 `npm install -g bower`
 
@@ -24,16 +24,36 @@ Edit a .bowerrc (which can be hosted at `/`, `~`, or in any parent directory for
 }
 ```
 
-## Configuration 
+## Configuration
 
 Add alternative sources to load from by adding an `alternativeSources` key to either your .bowerrc or bower.json object. The .bowerrc takes precendence, the arrays are not merged.
 
 ```json
 {
   "alternateSources": [
-    { 
+    {
       "owner": "my_components",
       "url": "https://internal.bitbucket.com/${owner}/${package}.git${version}"
+    }
+  ]
+}
+```
+
+To re-write URI's you can use `rewriteSources`. There are three parts:
+
+1. `match` to find a URI to re-write (uses `indexOf`)
+2. `parse` to find parts in the URI to pull out for _re-framing_ (uses `new RegExp`)
+3. `rewrite` to write the new form of the URI (uses `_.template` at v4.x.x)
+
+> The parts you match with the RegExp map to variables `_#` in the template for `rewrite`
+
+```json
+{
+  "rewriteSources": [
+    {
+      "match": "ssh",
+      "parse": "group\\/(.*?)\\.",
+      "rewrite": "group/${ _1 }"
     }
   ]
 }
@@ -52,4 +72,5 @@ In your bower file or when using `bower install` the `owner` keys will match the
 ```
 
 If you type `bower install` for your project with this configuration the request to `"my_components/button#1.2.3"` will be re-written to `"https://internal.bitbucket.com/my_components/button.git1.2.3"` because the `owner` matched.
+
 
