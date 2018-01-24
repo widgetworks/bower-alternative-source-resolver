@@ -1,6 +1,6 @@
 {
   "name": "bower-alternative-source-resolver",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An extension to bower allowing alternative component repositories",
   "main": "./lib/index.js",
   "keywords": [
