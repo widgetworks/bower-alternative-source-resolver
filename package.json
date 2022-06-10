@@ -1,5 +1,5 @@
 {
-  "name": "bower-alternative-source-resolver",
+  "name": "@wiwo/bower-alternative-source-resolver",
   "version": "0.2.1",
   "description": "An extension to bower allowing alternative component repositories",
   "main": "./lib/index.js",
@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mwjaworski/bower-alternative-source-resolver.git"
+    "url": "https://github.com/widgetworks/bower-alternative-source-resolver.git"
   },
   "licenses": [
     {
