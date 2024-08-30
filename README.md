@@ -1,3 +1,31 @@
+# WIWO SETUP
+## Project .bowerrc
+
+```json
+{
+    "directory": "build/vendor/assets",
+    "resolvers": [
+        "@wiwo/bower-alternative-source-resolver"
+    ],
+    "alternateSources": [
+        {
+            "owner": "widgetworks",
+            "url": "git@github.com:/${owner}/${package}.git${version}"
+        }
+    ],
+    "rewriteSources": [
+        {
+            "match": "bitbucket.org:widgetworks/",
+            "parse": "widgetworks\\/(.+?)(?:\\.git$|$)",
+            "rewrite": "widgetworks/${ _1 }"
+        }
+    ]
+}
+```
+
+## Project npm setup
+`npm install @wiwo/bower-alternative-source-resolver`
+
 # bower-alternative-source-resolver
 
 An extension to bower allowing alternative component repositories. This component solves issues with the `shorthand_resolver` in bower, because you can only target one resolver. This allows you to target different _owners_ and re-write the URL to avoid using the `shorthand_resolver`.
